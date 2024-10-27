@@ -1,6 +1,6 @@
 package com.multipledb.controller;
 
-import com.multipledb.dto.UserDto;
+import com.multipledb.dto.User;
 import com.multipledb.service.UserService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -13,12 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/users")
 @RequiredArgsConstructor
 public class UserController {
-
     private final UserService userService;
 
-    @GetMapping("/")
-    public ResponseEntity<List<UserDto>> getUsers() {
-        List<UserDto> users = userService.getAllUsers();
+    @GetMapping
+    public ResponseEntity<List<User>> getAllUsers() {
+        List<User> users = userService.getAllUsers();
         return ResponseEntity.ok(users);
     }
 }

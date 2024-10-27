@@ -1,7 +1,8 @@
 data-sources:
   data-sources:
   - name: data-base-1
-    url: jdbc:postgresql://localhost:5432/postgres
+    strategy: postgres
+    url: jdbc:postgresql://localhost:5433/db1
     table: users
     user: postgres
     password: postgres
@@ -11,7 +12,8 @@ data-sources:
       name: first_name
       surname: last_name
   - name: data-base-2
-    url: jdbc:postgresql://localhost:5432/db2
+    strategy: postgres
+    url: jdbc:postgresql://localhost:5434/db2
     table: user_table
     user: testuser
     password: testpass
@@ -21,3 +23,8 @@ data-sources:
       name: name
       surname: surname
 
+spring:
+  jpa:
+    open-in-view: false
+hibernate:
+  show-sql: true
