@@ -2,10 +2,10 @@ data-sources:
   data-sources:
   - name: data-base-1
     strategy: postgres
-    url: jdbc:postgresql://localhost:5433/db1
+    url: ${POSTGRES_URL}
     table: users
-    user: postgres
-    password: postgres
+    user: testuser
+    password: testpassword
     mapping:
       id: user_id
       username: login
@@ -13,10 +13,10 @@ data-sources:
       surname: last_name
   - name: data-base-2
     strategy: mysql
-    url: jdbc:mysql://localhost:5434/db2
+    url: ${MYSQL_URL}
     table: users
-    user: root
-    password: postgres
+    user: testuser
+    password: testpassword
     mapping:
       id: user_id
       username: login
