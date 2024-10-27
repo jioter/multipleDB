@@ -26,5 +26,3 @@ data-sources:
 spring:
   jpa:
     open-in-view: false
-hibernate:
-  show-sql: true
