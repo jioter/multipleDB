@@ -26,7 +26,6 @@ public class DataSourceConfig {
     final String PACKAGE_TO_SCAN_ENTITY = "com.multipledb.entity";
 
     private final DataSourceRouting dataSourceRouting;
-    private final DataSourceProperties properties;
 
     @Bean
     @Primary
