@@ -13,10 +13,10 @@ data-sources:
       surname: last_name
   - name: data-base-2
     strategy: mysql
-    url: jdbc:mysql://localhost:5434/db2
+    url: jdbc:mysql://localhost:3306/db2
     table: users
     user: root
-    password: postgres
+    password: mysql
     mapping:
       id: user_id
       username: login
@@ -26,3 +26,7 @@ data-sources:
 spring:
   jpa:
     open-in-view: false
+
+springdoc:
+  swagger-ui:
+    path: "/swagger-ui.html"

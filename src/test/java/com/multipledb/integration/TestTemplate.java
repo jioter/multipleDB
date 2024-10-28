@@ -16,6 +16,7 @@ import org.testcontainers.containers.PostgreSQLContainer;
 public class TestTemplate {
     private static final String POSTGRES_VERSION = "postgres:latest";
     static final PostgreSQLContainer<?> POSTGRES_CONTAINER = new PostgreSQLContainer<>(DockerImageName.parse(POSTGRES_VERSION));
+
     private static final String MYSQL_VERSION = "mysql:latest";
     static final MySQLContainer<?> MYSQL_CONTAINER = new MySQLContainer<>(DockerImageName.parse(MYSQL_VERSION));
 

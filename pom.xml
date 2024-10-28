@@ -26,6 +26,7 @@
     <modelmapper.version>3.2.0</modelmapper.version>
     <testcontainers.version>1.20.3</testcontainers.version>
     <junit-platform-launcher.version>1.11.3</junit-platform-launcher.version>
+    <open-api.version>2.2.0</open-api.version>
   </properties>
 
   <dependencies>
@@ -115,6 +116,11 @@
       <artifactId>junit-platform-launcher</artifactId>
       <version>${junit-platform-launcher.version}</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+      <version>${open-api.version}</version>
     </dependency>
   </dependencies>
 

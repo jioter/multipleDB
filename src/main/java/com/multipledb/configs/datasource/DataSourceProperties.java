@@ -21,13 +21,12 @@ public class DataSourceProperties {
 
     public record Mapping(String id, String username, String name, String surname) { }
 
+    @Getter
     public enum Strategy {
         postgres(POSTGRESQL.getDriverClassName()),
         mysql(MYSQL.getDriverClassName());
 
-        @Getter
-        @Setter
-        private String getDriverClassName;
+        private final String getDriverClassName;
 
         private Strategy(String driverClassName) {
             this.getDriverClassName = driverClassName;
