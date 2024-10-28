@@ -1,5 +1,6 @@
 package com.multipledb.configs.datasource;
 
+import java.util.Objects;
 import javax.sql.DataSource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,7 @@ public class DataSourceConfig {
         em.setPackagesToScan(PACKAGE_TO_SCAN_ENTITY);
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
-        em.setPersistenceUnitName("persistenceUnitName");
+        em.setPersistenceUnitName("usersPersistenceUnit");
         em.afterPropertiesSet();
         return em;
     }
@@ -49,6 +50,7 @@ public class DataSourceConfig {
     public JpaTransactionManager transactionManager(
         @Autowired @Qualifier("entityManager")
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean) {
-        return new JpaTransactionManager(entityManagerFactoryBean.getObject());
+        return new JpaTransactionManager(
+            Objects.requireNonNull(entityManagerFactoryBean.getObject()));
     }
 }
