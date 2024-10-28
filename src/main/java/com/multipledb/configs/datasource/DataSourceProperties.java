@@ -2,6 +2,7 @@ package com.multipledb.configs.datasource;
 
 import static org.springframework.boot.jdbc.DatabaseDriver.POSTGRESQL;
 import static org.springframework.boot.jdbc.DatabaseDriver.MYSQL;
+import static org.springframework.boot.jdbc.DatabaseDriver.ORACLE;
 
 import java.util.List;
 import lombok.Getter;
@@ -24,7 +25,8 @@ public class DataSourceProperties {
     @Getter
     public enum Strategy {
         postgres(POSTGRESQL.getDriverClassName()),
-        mysql(MYSQL.getDriverClassName());
+        mysql(MYSQL.getDriverClassName()),
+        oracle(ORACLE.getDriverClassName());
 
         private final String getDriverClassName;
 

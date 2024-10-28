@@ -2,6 +2,8 @@
 
 This Spring Boot service aggregates user data from multiple databases and provides a single REST endpoint for retrieving user information across these data sources. The configuration allows for dynamic scaling, enabling the addition or removal of databases simply by updating the application’s YAML configuration file.
 
+***Note! This implementation only applicably for static colum names in different databases.***
+
 ## Features
 
 - **Single REST Endpoint**: Aggregates user data from multiple databases accessible through a single endpoint.
@@ -13,8 +15,8 @@ This Spring Boot service aggregates user data from multiple databases and provid
 
 ### Prerequisites
 
-- **Java 17**
-- **Maven**
+- **Java 17.0.12**
+- **Maven 3.9.8**
 
 ### Setup
 
