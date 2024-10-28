@@ -28,7 +28,7 @@ public class DataSourceProperties {
 
         private final String getDriverClassName;
 
-        private Strategy(String driverClassName) {
+        Strategy(String driverClassName) {
             this.getDriverClassName = driverClassName;
         }
     }
