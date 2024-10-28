@@ -42,7 +42,17 @@ This Spring Boot service aggregates user data from multiple databases and provid
               name: first_name
               surname: last_name
         - name: data-base-2 
-         # Additional data source configuration
+          strategy: mysql
+          url:  jdbc:mysql://localhost:3306/db2
+          table: users
+          user: testuser
+          password: testpass
+          mapping:
+              id: user_id
+              username: login
+              name: first_name
+              surname: last_name
+         # Note! Only static field name mapping supported
          
 3. **Build and run the application:**
    ```bash
