@@ -26,8 +26,4 @@ public class DataSourceExecutor {
         });
         return results;
     }
-
-    private void setCurrentDatabaseName(DataSourceParameters dataSource) {
-        dataSourceContextHolder.setCurrentDb(dataSource.name());
-    }
 }
