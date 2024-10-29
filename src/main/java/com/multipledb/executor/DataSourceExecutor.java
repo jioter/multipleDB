@@ -4,6 +4,7 @@ import com.multipledb.configs.datasource.DataSourceContextHolder;
 import com.multipledb.configs.datasource.DataSourceProperties;
 import com.multipledb.configs.datasource.DataSourceProperties.DataSourceParameters;
 import com.multipledb.repository.UserRepository;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 import lombok.RequiredArgsConstructor;
@@ -18,10 +19,12 @@ public class DataSourceExecutor {
 
     public <T> List<T> execute(Function<UserRepository, List<T>> repositoryOperation,
         UserRepository userRepository) {
-        return dataSources.getDataSources().stream()
-            .peek(this::setCurrentDatabaseName)
-            .flatMap(dataSource -> repositoryOperation.apply(userRepository).stream())
-            .toList();
+        List<T> results = new ArrayList<>();
+        dataSources.getDataSources().forEach(dataSource -> {
+            dataSourceContextHolder.setCurrentDb(dataSource.name());
+            results.addAll(repositoryOperation.apply(userRepository));
+        });
+        return results;
     }
 
     private void setCurrentDatabaseName(DataSourceParameters dataSource) {
