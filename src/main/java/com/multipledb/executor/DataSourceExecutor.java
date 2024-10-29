@@ -2,7 +2,6 @@ package com.multipledb.executor;
 
 import com.multipledb.configs.datasource.DataSourceContextHolder;
 import com.multipledb.configs.datasource.DataSourceProperties;
-import com.multipledb.configs.datasource.DataSourceProperties.DataSourceParameters;
 import com.multipledb.repository.UserRepository;
 import java.util.ArrayList;
 import java.util.List;
