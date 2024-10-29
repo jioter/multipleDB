@@ -27,16 +27,10 @@ public class DataSourceConfig {
 
     private final DataSourceRouting dataSourceRouting;
 
-    @Bean
-    @Primary
-    public DataSource dataSource() {
-        return dataSourceRouting;
-    }
-
     @Bean(name = "entityManager")
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-        em.setDataSource(dataSource());
+        em.setDataSource(dataSourceRouting);
         em.setPackagesToScan(PACKAGE_TO_SCAN_ENTITY);
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
@@ -46,9 +40,7 @@ public class DataSourceConfig {
     }
 
     @Bean
-    public JpaTransactionManager transactionManager(
-        @Autowired @Qualifier("entityManager")
-        LocalContainerEntityManagerFactoryBean entityManagerFactoryBean) {
+    public JpaTransactionManager transactionManager(LocalContainerEntityManagerFactoryBean entityManagerFactoryBean) {
         return new JpaTransactionManager(
             Objects.requireNonNull(entityManagerFactoryBean.getObject()));
     }
